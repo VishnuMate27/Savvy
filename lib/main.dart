@@ -5,6 +5,7 @@ import 'package:savvy/MobileScreens/loginPage.dart';
 import 'package:savvy/MobileScreens/registrationPage.dart';
 import 'package:savvy/MobileScreens/getOtpPage.dart';
 import 'package:savvy/MobileScreens/passwordPage.dart';
+import 'package:savvy/MobileScreens/homePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Savvy',
-      initialRoute: 'f',
+      initialRoute: 'g',
       routes: {
         'a': (context) => PreLoginPage(),
         'b': (context) => LoginPage(),
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         'd': (context) => GetOtpPage(),
         'e': (context) => OTPVerificationPage(),
         'f': (context) => PasswordPage(),
+        'g': (context) => HomePage(),
       },
     );
   }
