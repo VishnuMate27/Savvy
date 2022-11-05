@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:savvy/MobileScreens/preLoginPage.dart';
+import 'package:provider/provider.dart'
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,12 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  final User? user = Auth().currentUser;
+
+  Future<void> signOut() async {
+    await Auth().signOut();
+  }
 
   @override
   State<HomePage> createState() => _HomePageState();
