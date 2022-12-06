@@ -21,7 +21,7 @@ class _PasswordPageState extends State<PasswordPage> {
       if (states.any(interactiveStates.contains)) {
         return Color(0xFF585858);
       }
-      return Color(0xFF1D976C);
+      return Color(0xFFEA384D);
     }
 
     return Scaffold(
@@ -143,7 +143,7 @@ class _PasswordPageState extends State<PasswordPage> {
                 Container(
                   height: 55,
                   decoration: new BoxDecoration(
-                    color: Color(0xFF1D976C),
+                    color: Color(0xFFEA384D),
                     borderRadius: BorderRadius.circular(4),
                     border: new Border.all(
                       width: 1.0,

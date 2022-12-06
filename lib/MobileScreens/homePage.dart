@@ -12,14 +12,76 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                  image:
+                      DecorationImage(image: AssetImage('images/evlogo.png'))),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('Past Journeys'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('Upcoming Journeys'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('My Profile'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('About us'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('Privacy Policy'),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
+              color: ,
               margin: EdgeInsets.only(left: 32, top: 47),
               child: Row(
                 children: [
@@ -28,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                     width: 8,
                   ),
                   Text(
-                    'New Delhi',
+                    'Nagpur',
                     style: TextStyle(
                       fontFamily: 'Mukta',
                       fontSize: 16,
@@ -41,306 +103,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Icon(FeatherIcons.chevronDown),
                   SizedBox(
-                    width: 145,
+                    width: 160,
                   ),
-                  Container(
-                    width: 75,
-                    height: 25,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      image: DecorationImage(
-                        alignment: Alignment.centerLeft,
-                        image: AssetImage('icons/bitcoin.png'),
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '300',
-                        style: TextStyle(
-                          fontFamily: 'Mukta',
-                          fontSize: 14,
-                          color: Color(0xFF585858),
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  )
+                  Icon(Icons.notifications),
                 ],
               ),
             ),
             SizedBox(
               height: 24,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 24, right: 24),
-              child: CupertinoSearchTextField(
-                placeholder: 'Search for turfs...',
-                placeholderStyle: TextStyle(
-                  fontFamily: 'Mukta',
-                  fontSize: 15,
-                  color: Color(0xFF585858),
-                  fontWeight: FontWeight.w500,
-                ),
-                borderRadius: BorderRadius.circular(3),
-                padding: EdgeInsets.fromLTRB(6, 16, 6, 16),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 32, right: 32, top: 15),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 82,
-                        height: 92,
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xFFD2D2D2),
-                              radius: 25,
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundColor: Color(0xFFD2D2D2),
-                                foregroundImage:
-                                    AssetImage('icons/cricket.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Cricket',
-                              style: TextStyle(
-                                fontFamily: 'Mukta',
-                                fontSize: 11,
-                                color: Color(0xFF585858),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             ),
             Container(
               margin: EdgeInsets.all(24),
@@ -350,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 child: const SizedBox(
                   height: 160,
                   child: Center(
-                    child: Text('Filled Card'),
+                    child: Text('Advertisement'),
                   ),
                 ),
               ),
@@ -360,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   margin: EdgeInsets.only(left: 25, top: 24),
                   child: Text(
-                    'Checkout Best Turfs Near You',
+                    'Previous Journeys',
                     style: TextStyle(
                       fontFamily: 'Mukta',
                       fontSize: 18,
@@ -374,108 +144,631 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 11,
             ),
-            Container(
-              width: 369,
-              height: 247,
-              margin: EdgeInsets.only(left: 32, right: 32),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Nex Arena',
-                        style: TextStyle(
-                            fontFamily: 'Mukta',
-                            fontSize: 21,
-                            color: Color(0xFF585858),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Dummy Road, New Delhi',
-                        style: TextStyle(
-                            fontFamily: 'Mukta',
-                            fontSize: 15,
-                            color: Color(0xFF1D976C),
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        width: 99,
-                      ),
-                      Icon(
-                        FeatherIcons.navigation,
-                        color: Color(0xFF585858),
-                        size: 16,
-                      ),
-                      Text(
-                        '  0.5 Km',
-                        style: TextStyle(
-                            fontFamily: 'Mukta',
-                            fontSize: 15,
-                            color: Color(0xFF585858),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10),
-                    child: Card(
-                      elevation: 1,
-                      color: Color(0xFF656565),
-                      child: const SizedBox(
-                        height: 160,
-                        child: Center(
-                          child: Text('Filled Card 2'),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'h');
+              },
+              child: Container(
+                width: 369,
+                height: 247,
+                margin: EdgeInsets.only(left: 32, right: 32),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'NGP to HYD',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 21,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Most Comfortable',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF1D976C),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 99,
+                        ),
+                        Icon(
+                          FeatherIcons.navigation,
+                          color: Color(0xFF585858),
+                          size: 16,
+                        ),
+                        Text(
+                          '500.2 Km',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Card(
+                        elevation: 1,
+                        color: Color(0xFF656565),
+                        child: const SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: Text('Filled Card 2'),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    width: 317,
-                    height: 16,
-                    margin: EdgeInsets.only(left: 8),
-                    child: Row(
+                    Container(
+                      width: 317,
+                      height: 16,
+                      margin: EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            '6.2 hours     2 Stops',
+                            style: TextStyle(
+                                fontFamily: 'Mukta',
+                                fontSize: 15,
+                                color: Color(0xFF585858),
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 135,
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_off.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'h');
+              },
+              child: Container(
+                width: 369,
+                height: 247,
+                margin: EdgeInsets.only(left: 32, right: 32),
+                child: Column(
+                  children: [
+                    Row(
                       children: [
-                        Image(
-                          image: AssetImage('images/cib_apple.png'),
+                        Text(
+                          'NGP to Pune',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 21,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Image(
-                          image: AssetImage('images/cib_apple.png'),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Image(
-                          image: AssetImage('images/cib_apple.png'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Possible',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF1D976C),
+                              fontWeight: FontWeight.w500),
                         ),
                         SizedBox(
                           width: 185,
                         ),
-                        Image(
-                          image: AssetImage('images/star_on.png'),
+                        Icon(
+                          FeatherIcons.navigation,
+                          color: Color(0xFF585858),
+                          size: 16,
                         ),
-                        Image(
-                          image: AssetImage('images/star_on.png'),
-                        ),
-                        Image(
-                          image: AssetImage('images/star_on.png'),
-                        ),
-                        Image(
-                          image: AssetImage('images/star_on.png'),
-                        ),
-                        Image(
-                          image: AssetImage('images/star_off.png'),
+                        Text(
+                          '717.1 Km',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Card(
+                        elevation: 1,
+                        color: Color(0xFF656565),
+                        child: const SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: Text('Filled Card 2'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 317,
+                      height: 16,
+                      margin: EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            '15.5 hours     3 Stops',
+                            style: TextStyle(
+                                fontFamily: 'Mukta',
+                                fontSize: 15,
+                                color: Color(0xFF585858),
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 115,
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_off.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'h');
+              },
+              child: Container(
+                width: 369,
+                height: 247,
+                margin: EdgeInsets.only(left: 32, right: 32),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'NGP to Bengaluru',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 21,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Comfortable',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF1D976C),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 165,
+                        ),
+                        Icon(
+                          FeatherIcons.navigation,
+                          color: Color(0xFF585858),
+                          size: 16,
+                        ),
+                        Text(
+                          '1092.2 Km',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Card(
+                        elevation: 1,
+                        color: Color(0xFF656565),
+                        child: const SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: Text('Filled Card 2'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 317,
+                      height: 16,
+                      margin: EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            '32 hours     6 Stops',
+                            style: TextStyle(
+                                fontFamily: 'Mukta',
+                                fontSize: 15,
+                                color: Color(0xFF585858),
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 135,
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_off.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'h');
+              },
+              child: Container(
+                width: 369,
+                height: 247,
+                margin: EdgeInsets.only(left: 32, right: 32),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'NGP to Mumbai',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 21,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Possible',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF1D976C),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 185,
+                        ),
+                        Icon(
+                          FeatherIcons.navigation,
+                          color: Color(0xFF585858),
+                          size: 16,
+                        ),
+                        Text(
+                          '827.6 Km',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Card(
+                        elevation: 1,
+                        color: Color(0xFF656565),
+                        child: const SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: Text('Filled Card 2'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 317,
+                      height: 16,
+                      margin: EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            '20.4 hours      7 Stops',
+                            style: TextStyle(
+                                fontFamily: 'Mukta',
+                                fontSize: 15,
+                                color: Color(0xFF585858),
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 115,
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_off.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'h');
+              },
+              child: Container(
+                width: 369,
+                height: 247,
+                margin: EdgeInsets.only(left: 32, right: 32),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'NGP to Nashik',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 21,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Comfortable',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF1D976C),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 175,
+                        ),
+                        Icon(
+                          FeatherIcons.navigation,
+                          color: Color(0xFF585858),
+                          size: 16,
+                        ),
+                        Text(
+                          '661.8 Km',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Card(
+                        elevation: 1,
+                        color: Color(0xFF656565),
+                        child: const SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: Text('Filled Card 2'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 317,
+                      height: 16,
+                      margin: EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            '16.55 hours     5 Stops',
+                            style: TextStyle(
+                                fontFamily: 'Mukta',
+                                fontSize: 15,
+                                color: Color(0xFF585858),
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 115,
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_off.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'h');
+              },
+              child: Container(
+                width: 369,
+                height: 247,
+                margin: EdgeInsets.only(left: 32, right: 32),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'NGP to HYD',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 21,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Most Comfortable',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF1D976C),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 99,
+                        ),
+                        Icon(
+                          FeatherIcons.navigation,
+                          color: Color(0xFF585858),
+                          size: 16,
+                        ),
+                        Text(
+                          '500.2 Km',
+                          style: TextStyle(
+                              fontFamily: 'Mukta',
+                              fontSize: 15,
+                              color: Color(0xFF585858),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Card(
+                        elevation: 1,
+                        color: Color(0xFF656565),
+                        child: const SizedBox(
+                          height: 160,
+                          child: Center(
+                            child: Text('Filled Card 2'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 317,
+                      height: 16,
+                      margin: EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            '6.2 hours     2 Stops',
+                            style: TextStyle(
+                                fontFamily: 'Mukta',
+                                fontSize: 15,
+                                color: Color(0xFF585858),
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 135,
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_on.png'),
+                          ),
+                          Image(
+                            image: AssetImage('images/star_off.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
@@ -491,20 +784,15 @@ class _HomePageState extends State<HomePage> {
               turns: AlwaysStoppedAnimation(360 / 360),
               child: SvgPicture.asset(
                 'icons/home.svg',
-                color: Color(0xFF1D976C),
+                color: Color(0xFFEA384D),
               ),
             ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'icons/turf.svg',
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'icons/notification.svg',
+            icon: Icon(
+              CupertinoIcons.car_detailed,
+              color: Colors.black,
             ),
             label: '',
           ),

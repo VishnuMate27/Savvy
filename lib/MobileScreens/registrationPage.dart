@@ -136,7 +136,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     child: Text(
                       'Forget Password?',
                       style: TextStyle(
-                        color: Color(0xFF1D976C),
+                        color: Color(0xFFEA384D),
                         fontFamily: 'Mukta',
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
@@ -196,24 +196,29 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     ),
                   ],
                 ),
-                Container(
-                  height: 55,
-                  decoration: new BoxDecoration(
-                    color: Color(0xFF1D976C),
-                    borderRadius: BorderRadius.circular(4),
-                    border: new Border.all(
-                      width: 1.0,
-                      color: Colors.transparent,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'd');
+                  },
+                  child: Container(
+                    height: 55,
+                    decoration: new BoxDecoration(
+                      color: Color(0xFFEA384D),
+                      borderRadius: BorderRadius.circular(4),
+                      border: new Border.all(
+                        width: 1.0,
+                        color: Colors.transparent,
+                      ),
                     ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'REGISTER',
-                      style: TextStyle(
-                          fontFamily: 'Mukta',
-                          fontSize: 21,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700),
+                    child: Center(
+                      child: Text(
+                        'REGISTER',
+                        style: TextStyle(
+                            fontFamily: 'Mukta',
+                            fontSize: 21,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                 ),
