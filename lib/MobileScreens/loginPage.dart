@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:savvy/MobileScreens/preLoginPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -49,6 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   child: TextFormField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: '       Enter your email/mobile no.',
@@ -68,6 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   child: TextFormField(
+                    controller: passwordController,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: '       Enter your password',
@@ -219,6 +226,15 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 )
+               RaisedButton(
+               onPressed: () {
+               context.read<PreLoginPage>().signIn(
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                  );
+            },
+            child: Text("Sign in"),
+          )
               ],
             ),
           ),

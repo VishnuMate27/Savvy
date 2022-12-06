@@ -1,3 +1,6 @@
+import 'dart:html';
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:savvy/MobileScreens/confirmPage.dart';
 import 'package:savvy/MobileScreens/otpVerificationPage.dart';
@@ -12,8 +15,10 @@ import 'MobileScreens/routePage.dart';
 import 'MobileScreens/selectEV.dart';
 import 'MobileScreens/trackPage.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +27,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        Provider<PreLoginPage>(
+          create: (_) => LoginPage(FirebaseAuth.instance),
+        )
+
+        StreamProvider(
+          create: (context) => context.read<PreLoginPage>().authStateChanges,
+        )
+      ],
+      child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Savvy',
       initialRoute: 'g',
@@ -40,6 +55,20 @@ class MyApp extends StatelessWidget {
         'm': (context) => RoutePage(),
         'za': (context) => PaymentPage(),
       },
+      home: AuthenticationWrapper(),
+    ),
     );
+  }
+}
+
+class AuthenticationWrapper extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User>();
+
+    if (firebaseUser != null) {
+      return HomePage();
+    }
+    return LoginPage();
   }
 }
